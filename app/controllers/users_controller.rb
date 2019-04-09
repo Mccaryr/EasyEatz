@@ -1,5 +1,8 @@
-class UsersController < ApplicationController
+class UsersController < ApplicationController 
+    before_action :current_user, only: [:show]
+    before_action :require_login, only: [:show]
 
+    
     def new 
         @user = User.new
     end 
@@ -13,6 +16,10 @@ class UsersController < ApplicationController
             redirect_to new_user_path 
         end 
     end 
+
+    def show 
+        @user = User.find_by_id(params[:id])
+    end     
 
     private 
 

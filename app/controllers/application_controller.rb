@@ -2,6 +2,15 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
     before_action :current_user
     helper_method :current_user, :logged_in?
+    helper_method :current_order 
+
+    def current_order 
+        if !session[:order_id].nil? 
+            Order.find(session[:order_id])
+        else 
+            Order.new 
+        end 
+    end 
 
     def current_user 
         @user ||= User.find(session[:user_id]) if logged_in?

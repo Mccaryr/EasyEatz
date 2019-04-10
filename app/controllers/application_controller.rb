@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
-    before_action :current_user
+    # before_action :current_user
     helper_method :current_user, :logged_in?
-    helper_method :current_order 
+    # helper_method :current_order 
 
     def current_order 
         if !session[:order_id].nil? 
@@ -13,7 +13,11 @@ class ApplicationController < ActionController::Base
     end 
 
     def current_user 
-        @user ||= User.find(session[:user_id]) if logged_in?
+        if logged_in? 
+        @user ||= User.find(session[:user_id])
+        else 
+        redirect_to 'welcome#home'
+        end  
     end 
 
     def logged_in?

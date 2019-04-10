@@ -16,6 +16,7 @@
           <%= link_to "#{current_user.name}'s Order", order_path(current_user), class:"navbar-brand"  %>
           <%= link_to "Log Out", logout_path, method: :post, class:"navbar-brand"  %>
           <%= link_to "Foodz", items_path, class:"navbar-brand" %>
+          
         <% else %>
           <%= link_to "Sign Up", new_user_path, class:"navbar-brand" %>
           <%= link_to "Login", signin_path, class:"navbar-brand" %>

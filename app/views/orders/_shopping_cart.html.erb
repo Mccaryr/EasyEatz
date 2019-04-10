@@ -1,3 +1,9 @@
-<%= @order_items.each do |order_item| %>
-    <%= render 'orders/order_row', item: order_item.item, order_item: order_item, show_total: true %>
+<% if @order_items.size == 0 %>
+  <p class="text-center">
+    There are no items in your shopping cart.  Please <%= link_to "go back", items_path %> and add some items to your cart.
+  </p>
+<% else %>
+  <% @order_items.each do |order_item| %>
+    <%= render 'orders/order_row', product: order_item.item, order_item: order_item, show_total: true %>
+  <% end %>
 <% end %>

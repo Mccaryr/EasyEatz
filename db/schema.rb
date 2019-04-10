@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2019_04_09_190812) do
     t.integer "order_id"
     t.integer "item_id"
     t.integer "quantity"
+    t.decimal "unit_price"
+    t.decimal "total_price"
   end
 
   create_table "orders", force: :cascade do |t|

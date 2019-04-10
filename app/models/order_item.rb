@@ -9,12 +9,12 @@ before_save :finalize
         if persisted? 
             self[:unit_price]
         else 
-            item.price 
+        item.price 
         end 
     end 
 
     def total_price 
-        unit_price * :quantity
+        unit_price * quantity
     end 
 
     private 

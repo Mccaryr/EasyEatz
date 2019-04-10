@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
-    # before_action :current_user
+    before_action :current_user
     helper_method :current_user, :logged_in?
-    # helper_method :current_order 
+    helper_method :current_order 
 
     def current_order 
         if !session[:order_id].nil? 

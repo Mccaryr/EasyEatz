@@ -13,11 +13,15 @@
         <div class="navbar-header">
     
         <% if logged_in? %>
+          <%= link_to "Home", root_path, class:"navbar-brand" %>
           <%= link_to "#{current_user.name}'s Order", order_path(current_user), class:"navbar-brand"  %>
-          <%= link_to "Log Out", logout_path, method: :post, class:"navbar-brand"  %>
           <%= link_to "Foodz", items_path, class:"navbar-brand" %>
+          <class="cart_text"><%= render 'layouts/cart_text'%>
+          <%= link_to "Log Out", logout_path, method: :post, class:"navbar-brand"  %>
+          
           
         <% else %>
+          <%= link_to "Home", root_path, class:"navbar-brand" %>
           <%= link_to "Sign Up", new_user_path, class:"navbar-brand" %>
           <%= link_to "Login", signin_path, class:"navbar-brand" %>
           <% end %>

@@ -3,3 +3,6 @@ alert("not valid.")
 <% else %>
   $(".cart-text").html("<%= escape_javascript(render 'layouts/cart_text') %>")
 <% end %>
+
+
+<%# renders some javascript as a response to an item being added to the cart  %>

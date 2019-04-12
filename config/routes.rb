@@ -1,13 +1,13 @@
 Rails.application.routes.draw do 
-
-    resources :users, only: [:new,:create, :show]
+    root 'welcome#home'
+    resources :users, only: [:new,:create]
 
     
     resources :items, only: [:index]
     resources :orders, only: [:show]
 
     resources :order_items, only: [:create, :update, :destroy]
-    root 'welcome#home'
+   
 
     get '/auth/facebook/callback' => 'sessions#create'
 

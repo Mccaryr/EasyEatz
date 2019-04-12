@@ -37,6 +37,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'pry-rails'
+gem 'thin'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
 
 
 # Use Capistrano for deployment

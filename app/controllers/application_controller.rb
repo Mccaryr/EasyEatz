@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     helper_method :current_user, :logged_in?
     helper_method :current_order 
 
-    def current_order 
+    def current_order
         if !session[:order_id].nil? 
             Order.find(session[:order_id])
         else 
@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
         if logged_in? 
         @user ||= User.find(session[:user_id])
         else 
+            
         redirect_to 'welcome#home'
         end  
     end 

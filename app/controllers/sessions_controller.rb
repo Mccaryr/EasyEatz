@@ -19,12 +19,13 @@ class SessionsController < ApplicationController
         @user = User.find_or_create_by(uid: auth['uid']) do |u|
           u.name = auth['info']['name']
           u.email = auth['info']['email']
-          u.image = auth['info']['image']
+          u.password = SecureRandom.hex(12)
+       
         end
-     
+        
         session[:user_id] = @user.id
      
-        render 'welcome/home'
+        redirect_to root_path 
     end
     
     def destroy 
@@ -39,6 +40,6 @@ class SessionsController < ApplicationController
       end
 
     def user_params 
-        params.require(:user).permit(:name,:password)
+        params.require(:user).permit(:name,:password, :uid, :email, :name)
     end 
 end 

@@ -16,7 +16,6 @@
           <%= link_to "Home", root_path, class:"navbar-brand" %>
           <%= link_to "#{current_user.name}'s Order", order_path(current_user), class:"navbar-brand"  %>
           <%= link_to "Foodz", items_path, class:"navbar-brand" %>
-          <class="cart_text"><%= render 'layouts/cart_text'%>
           <%= link_to "Log Out", logout_path, method: :post, class:"navbar-brand"  %>
           
           

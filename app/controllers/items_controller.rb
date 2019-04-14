@@ -4,4 +4,9 @@ class ItemsController < ApplicationController
         @items = Item.all 
         @order_item = current_order.order_items.new 
     end 
+
+    def vegetarian 
+        @items = Item.all 
+        @order_item = current_order.order_items.new 
+    end 
 end 

@@ -3,6 +3,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
     create_table :items do |t|
       t.integer :price
       t.string :name
+      t.boolean :vegetarian, default: false 
     end
   end
 end

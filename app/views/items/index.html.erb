@@ -1,7 +1,8 @@
 <h2 class="text-center">Food4Life</h2>
 
-<div class="row">
-    <% @items.each do |item| %>
-        <%= render "item_row", item: item, order_item: @order_item %>
-    <% end %>
-</div>
+
+        <%= render "item_row", item: @item, order_item: @order_item %>
+   
+
+
+<%= link_to "Vegetarian Menu", '/items/vegetarian' %>

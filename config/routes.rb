@@ -3,11 +3,12 @@ Rails.application.routes.draw do
     resources :users, only: [:new,:create]
 
     
-    resources :items, only: [:index]
+    resources :items, only: [:index, :vegetarian]
     resources :orders, only: [:show]
 
     resources :order_items, only: [:create, :update, :destroy]
    
+    get '/items/vegetarian', to: 'items#vegetarian'
 
     get '/auth/facebook/callback' => 'sessions#create'
 

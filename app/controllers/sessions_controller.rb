@@ -4,19 +4,19 @@ class SessionsController < ApplicationController
         @user = User.new 
     end 
 
-    # def create 
-    #     @user = User.find_or_create_by(user_params)
-    #     if @user && @user.authenticate(params[:password])
-    #         session[:user_id] = @user.id 
-    #         redirect_to user_path(@user)
-    #     else 
-    #         redirect_to signin_path 
-    #     end 
-    # end
+    def create_normally  
+        @user = User.find_or_create_by(user_params)
+        if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id 
+            redirect_to root_path
+        else 
+            redirect_to signin_path 
+        end 
+    end
 
 
     def create
-        @user = User.find_or_create_by(uid: auth['uid']) do |u|
+        @user = User.find_or_create_by(uid: auth['uid']) do |u| 
           u.name = auth['info']['name']
           u.email = auth['info']['email']
           u.password = SecureRandom.hex(12)

@@ -1,10 +1,10 @@
-class IngredientsController < ApplicationController
+class CondimentsController < ApplicationController
 
     def new 
-        @ingredient = Ingredient.new 
+        @condiment = Condiment.new 
     end 
 
     def index 
-        @ingredients = Ingredient.all 
+        @condiments = Condiment.all 
     end 
 end 

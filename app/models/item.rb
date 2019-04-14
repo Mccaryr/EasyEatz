@@ -6,4 +6,8 @@ class Item < ApplicationRecord
     def self.vegetarian 
         where(vegetarian: true)
     end 
+
+    def self.carnivore
+        where(vegetarian: false)
+    end 
 end 

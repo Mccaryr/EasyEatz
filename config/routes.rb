@@ -4,9 +4,17 @@ Rails.application.routes.draw do
 
     
     resources :items, only: [:index, :vegetarian]
-    resources :orders, only: [:show]
+    resources :orders, only: [:show] do 
+        resources :condiments, only: [:new, :create, :show]
+    end  
+
+    # get '/condiments/new', to: 'condiments#new'
 
     resources :order_items, only: [:create, :update, :destroy]
+
+    resources :condiments, only: [:new, :create, :show]
+
+    get '/orders/order_id/condiments', to: 'condiments#show'
    
     get '/items/vegetarian', to: 'items#vegetarian'
 

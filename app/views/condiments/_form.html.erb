@@ -1,4 +1,5 @@
-<%= form_form :condiment, do |f| %>
+<%= form_for(@condiment) do |f| %>
+<%= f.hidden_field :order_id %>
     Name: <%= f.text_field :name %>
-    <%= f.submit %>
+    <%= f.submit "Add Condiment to Order" %>
 <% end %>

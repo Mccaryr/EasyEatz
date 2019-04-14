@@ -2,4 +2,10 @@
   <%= render "shopping_cart" %>
 </div>
 
+<%= link_to "Add Condiments to Order", new_order_condiment_path(:order_id) %>    <%= link_to "View Condiments", '/orders/:order_id/condiments/:id' %>
+<br><br>
+
+
+
 <%=  "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal})"  %>
+

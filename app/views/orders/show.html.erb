@@ -2,7 +2,7 @@
   <%= render "shopping_cart" %>
 </div>
 
-<%= link_to "Add Condiments to Order", new_order_condiment_path(:order_id) %>    <%= link_to "View Condiments", '/orders/:order_id/condiments/:id' %>
+<%= link_to "Add Condiments to Order", new_order_condiment_path(current_order) %>    <%= link_to "View Condiments", "/orders/#{current_order.id}/condiments" %>
 <br><br>
 
 

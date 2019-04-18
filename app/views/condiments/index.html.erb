@@ -1,0 +1,8 @@
+<h1>Condiments For Your Order</h1>
+
+<% @condiments.each do |condiment| %>
+
+<h4><%= condiment.name %></h4> 
+<%= link_to 'Delete', condiment, :confirm => "Are you sure you wish to delete the condiment '#{condiment.name}' from your cart?", method: :delete, remote: true, class: "btn btn-danger"  %>
+
+<% end %>

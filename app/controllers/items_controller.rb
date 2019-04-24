@@ -1,12 +1,11 @@
 class ItemsController < ApplicationController
 
     def index 
-        @items = Item.all 
-        @order_item = current_order.order_items.new 
-    end 
-
-    def vegetarian 
-        @items = Item.all 
-        @order_item = current_order.order_items.new 
+        if params[:filter]
+            @items = Item.send(params[:filter].downcase)
+        else
+        @items = Item.all
+        end 
+        @order_item = current_order.order_items.new
     end 
 end 

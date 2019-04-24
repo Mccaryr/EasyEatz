@@ -1,6 +1,6 @@
 Rails.application.routes.draw do 
     root 'welcome#home'
-    resources :users, only: [:new,:create]
+    resources :users, only: [:new,:create, :show]
 
     
     resources :items, only: [:index, :vegetarian]
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :condiments, only: [:new, :create, :show, :destroy]
 
 
-    get '/orders/order_id/condiments', to: 'condiments#show'
+    #get '/orders/:id/condiments', to: 'condiments#show'
    
     get '/items/vegetarian', to: 'items#vegetarian'
 
